@@ -182,3 +182,32 @@
     border-bottom: 1px dotted #595;
     margin-bottom: 10px;
 }
+
+/* Styles for order form */
+.healthy_option_catering_form fieldset {
+    background: #efe;
+}
+.healthy_option_catering_form legend {
+    color: #dfd;
+    background: #141;
+
+    font-family: sans-serif;
+    padding: 0.2em 1em;
+}
+.healthy_option_catering_form label {
+    width: 5em;
+    float: left;
+    text-align: right;
+    padding-top: 0.2em;
+    margin-right: 0.1em;
+    display: block;
+}
+.healthy_option_catering_form select, .healthy_option_catering_form textarea, .healthy_option_catering_form input {
+    margin-left: 0.5em;
+}
+.healthy_option_catering_form .submit {
+    margin-left: 4em;
+}
+.healthy_option_catering_form div {
+    margin: 0.5em 0;
+}

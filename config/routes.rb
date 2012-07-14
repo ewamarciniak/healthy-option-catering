@@ -1,4 +1,6 @@
 HealthyOptionCatering::Application.routes.draw do
+  get "welcome/home"
+
   get 'admin' => 'admin#index'
 
   controller :sessions do
@@ -17,10 +19,18 @@ HealthyOptionCatering::Application.routes.draw do
   resources :carts
 
   get "store/index"
+# get "sessions/new"
+
+  get "welcome/thank_you"
+  get "welcome/register"
 
   resources :products do
     get :who_bought, :on => :member
   end
+
+  match '/your_cart' => "carts#your_cart", :as => "your_cart"
+  match '/login' => "sessions#new", :as => "login"
+  match '/logout' => "sessions#destroy", :as => "logout"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -72,7 +82,8 @@ HealthyOptionCatering::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
-  root :to => 'store#index', :as => 'store'
+  # root :to => 'store#index', :as => 'store'
+  root :to => "welcome", :action => "home"
 
   # See how all your routes lay out with "rake routes"
 

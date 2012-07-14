@@ -11,6 +11,14 @@
 <div id="banner">
   <%= image_tag("logo.png") %>
   <%= @page_title || "Healthy Option Catering" %>
+
+<!--Gosia start-->
+  <%= link_to "Product Catalogue", :controller => "store" %> |
+<!--Gosia end-->
+  <%= link_to "Leave Site", :controller => "welcome", :action => "thank_you" %> |
+  <%= link_to "Register", :controller => "welcome", :action => "register" %> |
+  <%= link_to "Home", :controller => "welcome", :action => "home" %>
+
 </div>
 <div id="columns">
   <div id="side">

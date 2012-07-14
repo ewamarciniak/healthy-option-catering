@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   skip_before_filter :authorize
-
   def new
   end
 
@@ -11,10 +10,11 @@ class SessionsController < ApplicationController
     else
       redirect_to login_url, :alert => "Invalid user/password combination"
     end
-
-    def destroy
-      session[:user_id] = nil
-      redirect_to store_url, :notice => "Logged out"
-    end
   end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to store_url, :notice => "Logged out"
+  end
+
 end

@@ -9,7 +9,6 @@ HealthyOptionCatering::Application.routes.draw do
     delete 'logout' => :destroy
   end
 
-
   resources :users
 
   resources :orders

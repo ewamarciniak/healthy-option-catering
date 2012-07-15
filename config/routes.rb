@@ -2,6 +2,7 @@ HealthyOptionCatering::Application.routes.draw do
   get "welcome/home"
 
   get 'admin' => 'admin#index'
+  get 'store' => 'store#index'
 
   controller :sessions do
     get 'login' => :new
@@ -16,6 +17,7 @@ HealthyOptionCatering::Application.routes.draw do
   resources :line_items
 
   resources :carts
+  resources :sessions
 
   get "store/index"
 # get "sessions/new"

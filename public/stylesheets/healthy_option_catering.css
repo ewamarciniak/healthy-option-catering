@@ -24,6 +24,14 @@
     border-collapse: collapse;
 }
 
+#product_list table tr th {
+    padding: 10px 0;
+    color: #244;
+    background: #99CC99;
+    font-weight: bold;
+    font-size: larger;
+}
+
 #product_list table tr td {
     padding: 5px;
     vertical-align: top;
@@ -59,11 +67,11 @@
 }
 
 #product_list .list_line_even {
-    background: #e0f8f8;
+    background: #e5e9dc;
 }
 
 #product_list .list_line_odd {
-    background: #f8b0f8;
+    background: #cce93e;
 }
 
 /* An entry in the store catalog */
@@ -127,9 +135,22 @@
     text-align: center;
 }
 
+#banner form {
+    float: right;
+    margin-right: 0.4em;
+}
+
 #banner img {
     float: left;
     margin-left: 0.4em;
+}
+
+#links{
+    float: right;
+    margin-right: 0.4em;
+    padding-top: 12px;
+    font: 60% bold;
+
 }
 
 #columns {

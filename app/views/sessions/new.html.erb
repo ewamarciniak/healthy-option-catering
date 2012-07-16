@@ -6,20 +6,35 @@
   <%= form_tag do %>
       <fieldset>
         <legend>Please Log In</legend>
+        <br/>
 
         <div>
           <label for="name">Name:</label>
           <%= text_field_tag :name, params[:name] %>
         </div>
+        <br/>
 
         <div>
-          <label for="password">PasswordHealthyOptionCatering:</label>
+          <label for="password">Password:</label>
           <%= password_field_tag :password, params[:password] %>
         </div>
+        <br/>
 
         <div>
           <%= submit_tag "Login" %>
         </div>
+        <br/>
+
+        <legend>If you don't have an account - Please register</legend>
+        <br/>
+        <div>
+          <%= link_to "Register", :controller => "welcome", :action => "register" %>
+        </div>
+        <br/>
+
       </fieldset>
+
   <% end %>
+
+
 </div>

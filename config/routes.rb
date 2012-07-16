@@ -3,6 +3,7 @@ HealthyOptionCatering::Application.routes.draw do
 
   get 'admin' => 'admin#index'
   get 'store' => 'store#index'
+  get 'register' => 'welcome#register'
 
   controller :sessions do
     get 'login' => :new
@@ -32,6 +33,7 @@ HealthyOptionCatering::Application.routes.draw do
   match '/your_cart' => "carts#your_cart", :as => "your_cart"
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
+ # match '/register' => "sessions#new", :as => "register"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

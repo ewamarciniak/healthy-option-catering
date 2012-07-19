@@ -1,9 +1,21 @@
 HealthyOptionCatering::Application.routes.draw do
+
+
+  resources :categories
+
+  get "users/history"
+
+  #get "users/details"
+
   get "welcome/home"
+
+  get "users/show"
 
   get 'admin' => 'admin#index'
   get 'store' => 'store#index'
   get 'register' => 'welcome#register'
+  get 'profile' => 'users#profile'
+  get 'history' => 'users#history'
 
   controller :sessions do
     get 'login' => :new
@@ -18,7 +30,10 @@ HealthyOptionCatering::Application.routes.draw do
   resources :line_items
 
   resources :carts
+
   resources :sessions
+
+  resources :accounts
 
   get "store/index"
 # get "sessions/new"

@@ -1,0 +1,13 @@
+<h1>Accounts history</h1>
+
+
+<% if @orders.present? %>
+    Your past orders were:
+
+    <% @orders.each do |order| %>
+        <%= order.name %>
+        <%= order.created_at %>
+    <% end %>
+<% else %>
+    You haven't placed any orders yet
+<% end %>

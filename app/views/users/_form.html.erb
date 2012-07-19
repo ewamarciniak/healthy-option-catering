@@ -17,8 +17,18 @@
         <legend>Enter User Details</legend>
 
         <div>
-          <%= f.label :name %>:
+          <%= f.label :name, 'Login name' %>:
           <%= f.text_field :name, :size => 40 %>
+        </div>
+
+        <div>
+          <%= f.label :first_name, 'First name' %>:
+          <%= f.text_field :first_name, :size => 40 %>
+        </div>
+
+        <div>
+          <%= f.label :last_name, 'Last name' %>:
+          <%= f.text_field :last_name, :size => 40 %>
         </div>
 
         <div>
@@ -31,11 +41,43 @@
           <%= f.password_field :password_confirmation, :size => 40 %>
         </div>
 
-        <div>
-          <%= f.submit %>
-        </div>
+
+
+        <% if current_user %>
+            <% if current_user.admin %>
+                <div>
+                  <%= f.label :admin, 'Admin' %>:
+                  <%= f.check_box :admin, {}, "true" %>
+                </div>
+            <% end %>
+        <% end %>
 
       </fieldset>
+      <br/>
+      <fieldset>
+        <legend>Enter Billing Address Details</legend>
+        <div>
+          <%= f.label :address1, 'Address line 1' %>:
+          <%= f.text_field :address1, :size => 40 %>
+        </div>
+        <div>
+          <%= f.label :address2, 'Address line 2' %>:
+          <%= f.text_field :address2, :size => 40 %>
+        </div>
+        <div>
+          <%= f.label :city, 'City' %>:
+          <%= f.text_field :city, :size => 40 %>
+        </div>
+        <div>
+          <%= f.label :postcode, 'Postcode' %>:
+          <%= f.text_field :postcode, :size => 40 %>
+        </div>
+      </fieldset>
+      <br/>
+
+      <div>
+        <%= f.submit %>
+      </div>
   <% end %>
 
 </div>

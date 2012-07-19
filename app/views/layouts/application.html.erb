@@ -19,11 +19,13 @@
   <% end %>
   <div id="links">
 
-  <!-- REFERENCE START - LAPTOP SHOP TUTORIAL 2 -->
+    <!-- REFERENCE START - LAPTOP SHOP TUTORIAL 2 -->
     <% if logged_in? %>
         <%= current_user.name %> |
         <%= link_to 'Logout', logout_path %> |
-        <%= link_to "Create User", new_user_path %> |
+        <% if current_user.admin %>
+            <%= link_to "Create User", new_user_path %> |
+        <% end %>
     <% else %>
         <%= link_to "Login", login_path %> |
         <%= link_to "Register", :controller => "welcome", :action => "register" %> |
@@ -49,16 +51,18 @@
     <!--<<li><a href="http://www..../faq">Questions</a><br/></li> -->
     <!--<<li><a href="http://www..../news">News</a><br/></li> -->
     <!--<<li><a href="http://www..../contact">Contact</a><br/></li> -->
-    <% if session[:user_id] %>
-        <br/>
-        <%= link_to 'Orders', orders_path %>
-        <br/>
-        <%= link_to 'Products', products_path %>
-        <br/>
-        <%= link_to 'Users', users_path %>
-        <br/>
-        <br/>
-        <!--  <%= button_to 'Logout', logout_path, :method => :delete %> -->
+    <% if current_user %>
+        <% if current_user.admin %>
+            <br/>
+            <%= link_to 'Orders', orders_path %>
+            <br/>
+            <%= link_to 'Products', products_path %>
+            <br/>
+            <%= link_to 'Users', users_path %>
+            <br/>
+            <br/>
+            <!--  <%= button_to 'Logout', logout_path, :method => :delete %> -->
+        <% end %>
     <% end %>
   </div>
   <div id="main">

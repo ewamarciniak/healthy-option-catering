@@ -2,6 +2,7 @@ require 'digest/sha2'
 
 class User < ActiveRecord::Base
   has_many :products
+  has_many :orders
 
   validates :name, :presence => true, :uniqueness => true
 

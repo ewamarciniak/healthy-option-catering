@@ -1,6 +1,37 @@
 <div class="healthy_option_catering_form">
+  <h1>Items in your cart: </h1>
+  <table>
+    <tr>
+      <th>Product title</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% current_cart.line_items.each do |item| %>
+      <tr>
+        <td><%= item.product.title %></td>
+         <td><%= item.quantity %></td>
+        <td><%= item.total_price %></td>
+      </tr>
+    <%  end %>
+    <tr>
+      <td></td>
+      <td>TOTAL PRICE:</td>
+      <td><%= current_cart.total_price %> </td>
+    </tr>
+  </table>
+
+   <br/>
+  <br/>
+
   <fieldset>
-    <legend>Please Enter Your Details</legend>
+    <legend>Please Enter The Delivery Details Below</legend>
     <%= render 'form' %>
   </fieldset>
 </div>
+
+
+

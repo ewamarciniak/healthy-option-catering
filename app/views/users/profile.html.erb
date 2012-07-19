@@ -1,0 +1,50 @@
+<h1>Welcome</h1>
+It's <%= Time.now %>
+<br/>
+<br/>
+
+<% if @order %>
+    <h1>Your last order details:</h1>
+
+    <table>
+      <tr>
+        <th>Product:</th>
+        <th>Quantity:</th>
+        <th>Price:</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <% @order.line_items.each do |item| %>
+          <tr>
+            <td><%= item.product.title %></td>
+            <td><%= item.quantity %></td>
+            <td><%= item.total_price %></td>
+          </tr>
+        <% end %>
+      <tr/>
+      <tr>
+        <td></td>
+        <td>TOTAL PRICE:</td>
+        <td><%= current_cart.total_price %> </td>
+      </tr>
+    </table>
+    <br/>
+    <p>
+      <b>Order date:</b>
+      <%= @order.created_at  %>
+    </p>
+    <p>
+      <b>Payment method:</b>
+      <%= @order.pay_type %>
+    </p>
+<% else %>
+    You haven't placed any orders yet
+<% end %>
+
+<br/>
+<%= link_to 'View User Details', :controller => "users", :action => "show" %>
+<br/>
+<%= link_to 'View Purchase History', :controller => "users", :action => "history" %>
+

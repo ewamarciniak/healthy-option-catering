@@ -12,8 +12,19 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.xml
+
+  #code authors: Ewa Marciniak and Malgorzata Holubowicz
+  #start of the code
   def show
-    @user = User.find(params[:id])
+    if user = current_user
+      if user.admin
+        @user = User.find(params[:id])
+      else
+        @user = User.find(current_user.id)
+      end
+    end
+  #end of the code
+    #@orders = @user.orders
 
     respond_to do |format|
       format.html # show.html.erb
@@ -60,7 +71,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(users_url, :notice => "User #{@user.name} was successfully updated.") }
+        if user = current_user && user.admin = true
+          format.html { redirect_to(profile_url, :notice => "User #{@user.name} was successfully updated.") }
+        else
+          format.html { redirect_to(users_url, :notice => "Your user details were successfully updated.") }
+        end
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
@@ -83,5 +98,13 @@ class UsersController < ApplicationController
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def profile
+    @order = current_user.orders.last
+  end
+
+  def history
+    @orders = current_user.orders.all
   end
 end

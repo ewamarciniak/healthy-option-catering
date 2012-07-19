@@ -1,9 +1,25 @@
 <p id="notice"><%= notice %></p>
 
+<h1> User Details</h1>
 <p>
-  <b>Name:</b>
+  <b>Login name:</b>
   <%= @user.name %>
 </p>
+
+<p>
+  <b>First name:</b>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @user.last_name %>
+</p>
+
+
+<% if current_user %>
+    <% if current_user.admin %>
+
 
 <p>
   <b>Hashed password:</b>
@@ -15,6 +31,41 @@
   <%= @user.salt %>
 </p>
 
+<p>
+  <b>User ID:</b>
+  <%= @user.id %>
+</p>
+
+
+<p>
+  <b>Admin:</b>
+  <%= @user.admin %>
+</p>
+
+    <% end %>
+<% end %>
+
+<h1>Billing Address</h1>
+
+<p>
+  <b>Address line 1:</b>
+  <%= @user.address1 %>
+</p>
+
+<p>
+  <b>Address line 2:</b>
+  <%= @user.address2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @user.city %>
+</p>
+
+<p>
+  <b>Postcode:</b>
+  <%= @user.postcode %>
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

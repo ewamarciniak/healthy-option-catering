@@ -1,18 +1,4 @@
-class AccountsController < ApplicationController
-  def profile
-    @order = current_user.orders.last
-  end
 
-  def history
-    @orders = current_user.orders.all
-  end
+# Due to changes in the structure of the project, the code was moved to users_controller.rb
 
-  def details
 
-  end
-
-  def show
-
-  end
-
-end

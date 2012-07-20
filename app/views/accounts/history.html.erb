@@ -1,13 +1,1 @@
-<h1>Accounts history</h1>
-
-
-<% if @orders.present? %>
-    Your past orders were:
-
-    <% @orders.each do |order| %>
-        <%= order.name %>
-        <%= order.created_at %>
-    <% end %>
-<% else %>
-    You haven't placed any orders yet
-<% end %>
+<!-- Due to changes in the structure of the project, the code was moved to the view/users.rb-->

@@ -1,3 +1,6 @@
+# @reference: Ruby,S. & Thomas,D & Heinemeier Hanson, D. (2010), "Agile Web Development with Rails", USA
+# @reference: Wesley Gorman, "Laptop Shop Tutorial"
+
 class CombineItemsInCart < ActiveRecord::Migration
   def self.up
 # replace multiple items for a single product in a cart with a single item

@@ -1,15 +1,14 @@
+# @reference: Ruby,S. & Thomas,D & Heinemeier Hanson, D. (2010), "Agile Web Development with Rails", USA
+# @reference: Wesley Gorman, "Laptop Shop Tutorial"
+
 HealthyOptionCatering::Application.routes.draw do
 
-
-  resources :categories
-
   get "users/history"
-
-  #get "users/details"
-
   get "welcome/home"
-
   get "users/show"
+  get "store/index"
+  get "welcome/thank_you"
+  get "welcome/register"
 
   get 'admin' => 'admin#index'
   get 'store' => 'store#index'
@@ -33,13 +32,7 @@ HealthyOptionCatering::Application.routes.draw do
 
   resources :sessions
 
-  resources :accounts
-
-  get "store/index"
-# get "sessions/new"
-
-  get "welcome/thank_you"
-  get "welcome/register"
+  resources :categories
 
   resources :products do
     get :who_bought, :on => :member

@@ -1,12 +1,17 @@
-h1>Accounts history</h1>
+<!--  Date: 10.07.2012 -->
+<!-- @author: Ewa Marciniak x11114533, Malgorzata Holubowicz x12101362  -->
+
+
+<h1>Accounts history</h1>
 
 
 <% if @orders.present? %>
-    Your past orders were:
+    <b>Your past orders were:  </b>
 
     <% @orders.each do |order| %>
-        <%= order.name %>
+        <p>
         <%= order.created_at %>
+        <p>
     <% end %>
 <% else %>
     You haven't placed any orders yet

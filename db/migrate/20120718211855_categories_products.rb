@@ -1,3 +1,7 @@
+# Classname: categories_products
+# Date: 19.07.2012
+# @author: Ewa Marciniak x11114533, Malgorzata Holubowicz x12101362
+
 class CategoriesProducts < ActiveRecord::Migration
   def self.up
     remove_column :categories, :product_id

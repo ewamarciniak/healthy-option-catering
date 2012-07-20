@@ -1,3 +1,6 @@
+# @reference: Ruby,S. & Thomas,D & Heinemeier Hanson, D. (2010), "Agile Web Development with Rails", USA
+# @reference: Wesley Gorman, "Laptop Shop Tutorial"
+
 require 'digest/sha2'
 
 class User < ActiveRecord::Base

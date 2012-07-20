@@ -1,3 +1,7 @@
+# Classname: categories_controller.rb
+# Date: 19.07.2012
+# @author: Ewa Marciniak x11114533, Malgorzata Holubowicz x12101362
+
 class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.xml

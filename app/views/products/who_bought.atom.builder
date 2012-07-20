@@ -1,3 +1,5 @@
+#@reference: Ruby,S. & Thomas,D & Heinemeier Hanson, D. (2010), "Agile Web Development with Rails", USA
+
 atom_feed do |feed|
   feed.title "Who bought #{@product.title}"
   latest_order = @product.orders.sort_by(&:updated_at).last

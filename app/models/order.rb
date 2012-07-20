@@ -1,3 +1,6 @@
+# @reference: Ruby,S. & Thomas,D & Heinemeier Hanson, D. (2010), "Agile Web Development with Rails", USA
+# @reference: Wesley Gorman, "Laptop Shop Tutorial"
+
 class Order < ActiveRecord::Base
   PAYMENT_TYPES = [ "Check", "Credit card", "Purchase order" ]
   validates :name, :address, :email, :pay_type, :presence => true

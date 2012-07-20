@@ -1,3 +1,6 @@
+# @reference: Ruby,S. & Thomas,D & Heinemeier Hanson, D. (2010), "Agile Web Development with Rails", USA
+# @reference: Wesley Gorman, "Laptop Shop Tutorial"
+
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
@@ -13,8 +16,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
 
-  #code authors: Ewa Marciniak and Malgorzata Holubowicz
-  #start of the code
+# @authors: Ewa Marciniak x11114533 and Malgorzata Holubowicz x12101362
+# start of the code
   def show
     if user = current_user
       if user.admin
@@ -23,7 +26,7 @@ class UsersController < ApplicationController
         @user = User.find(current_user.id)
       end
     end
-  #end of the code
+# end of the code
     #@orders = @user.orders
 
     respond_to do |format|
@@ -69,9 +72,13 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
+
+# @authors: Ewa Marciniak x11114533 and Malgorzata Holubowicz x12101362
+# start of the code
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        if user = current_user && user.admin = true
+        user = current_user
+        if  user.admin = true
           format.html { redirect_to(profile_url, :notice => "User #{@user.name} was successfully updated.") }
         else
           format.html { redirect_to(users_url, :notice => "Your user details were successfully updated.") }
@@ -82,6 +89,8 @@ class UsersController < ApplicationController
       end
     end
   end
+# end of the code
+
 
   # DELETE /users/1
   # DELETE /users/1.xml

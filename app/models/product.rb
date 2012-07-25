@@ -6,9 +6,12 @@ class Product < ActiveRecord::Base
   belongs_to :user
   has_many :line_items
   has_many :orders, :through => :line_items
-  #has_and_belongs_to_many :categories
+  has_and_belongs_to_many :categories
 
   before_destroy :ensure_not_referenced_by_any_line_item
+  #below code added 24.07.2012 to protect against mass assignment exploit
+  attr_accessible :title, :description, :price, :image_url
+  #end of code
 
 # ensure that there are no line items referencing this product
   def ensure_not_referenced_by_any_line_item
@@ -27,6 +30,7 @@ class Product < ActiveRecord::Base
       find(:all)
     end
   end
+
 
   validates :title, :description, :image_url, :presence => true
   validates :price, :numericality => {:greater_than_or_equal_to => 0.01}

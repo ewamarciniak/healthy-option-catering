@@ -3,6 +3,7 @@
 
 class OrdersController < ApplicationController
   skip_before_filter :authorize, :only => [:create]
+  before_filter :is_admin?, :only => [:index]
 
   # GET /orders
   # GET /orders.xml
@@ -51,15 +52,7 @@ class OrdersController < ApplicationController
   # POST /orders.xml
   def create
     @order = Order.new(params[:order])
-
     @order.user_id = current_user.id
-    #logger.info "user: #{@order.user_id}"
-    #logger.info "params[:order] #{params[:order]}"
-    #logger.info "****************************************"
-    #logger.info
-    #logger.info
-    #logger.info
-    #logger.info
     @order.add_line_items_from_cart(current_cart)
     #logger.debug "New order: #{@order.attributes.inspect}"
     #logger.debug "Order should be valid: #{@order.valid?}"

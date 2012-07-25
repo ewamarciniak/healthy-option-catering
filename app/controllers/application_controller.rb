@@ -4,6 +4,7 @@
 class ApplicationController < ActionController::Base
   before_filter :authorize, :except => [:create]
   helper_method :current_cart
+  helper_method :current_user
   protect_from_forgery
 
   private
@@ -23,6 +24,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def authorize
+
     unless User.find_by_id(session[:user_id])
       redirect_to login_url, :notice => "Please log in"
     end
@@ -36,7 +38,7 @@ class ApplicationController < ActionController::Base
   end
 
 # Make current_user available in templates as a helper
-  helper_method :current_user
+
 # Filter method to enforce a login requirement
 # Apply as a before_filter on any controller you want to protect
   def authenticate
@@ -54,5 +56,12 @@ class ApplicationController < ActionController::Base
   def access_denied
     redirect_to login_path, :notice => "Please log in to continue" and return false
   end
-# Refence End --------------
+# Refernce End --------------
+
+ def is_admin?
+   unless current_user.admin
+     redirect_to store_url, :notice => "You are not authorized to access this page"
+   end
+ end
 end
+

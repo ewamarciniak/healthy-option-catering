@@ -14,12 +14,7 @@
 <div id="banner">
   <%= image_tag("logo.png") %>
   <%= @page_title || "Healthy Option Catering" %>
-  <% form_tag products_path, :method => 'get' do %>
-      <p>
-        <%= text_field_tag :search_query, params[:search_query] %>
-        <%= submit_tag "Search", :title => nil %>
-      </p>
-  <% end %>
+
   <div id="links">
 
     <!-- REFERENCE START - LAPTOP SHOP TUTORIAL 2 -->
@@ -39,18 +34,11 @@
 </div>
 <div id="columns">
   <div id="side">
-    <% if @cart %>
-        <%= hidden_div_if(@cart.line_items.empty?, :id => "cart") do %>
-            <%= render @cart %>
-        <% end %>
-    <% end %>
-
     <li><%= link_to "Home", :controller => "welcome", :action => "home" %></li>
-    <!--Gosia start-->
     <li><%= link_to "Product Catalogue", :controller => "store" %></li>
     <li><%= link_to "Leave Site", :controller => "welcome", :action => "thank_you" %> </li>
-    <!--Gosia end-->
-    <!--<a href="http://www....">Home</a><br/>-->
+
+     <!--<a href="http://www....">Home</a><br/>-->
     <!--<<li><a href="http://www..../faq">Questions</a><br/></li> -->
     <!--<<li><a href="http://www..../news">News</a><br/></li> -->
     <!--<<li><a href="http://www..../contact">Contact</a><br/></li> -->
@@ -65,8 +53,22 @@
             <br/>
             <br/>
             <!--  <%= button_to 'Logout', logout_path, :method => :delete %> -->
+        <% else %>
+            <%= link_to 'My Account', :controller => "users", :action => "show" %>
+            <br/>
+            <%= link_to 'Purchase History', :controller => "users", :action => "history" %>
         <% end %>
     <% end %>
+    <br/>
+
+    <% if @cart %>
+        <%= hidden_div_if(@cart.line_items.empty?, :id => "cart") do %>
+            <%= render @cart %>
+        <% end %>
+    <% end %>
+
+
+
   </div>
   <div id="main">
     <%= yield %>

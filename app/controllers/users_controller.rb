@@ -4,6 +4,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
+  before_filter :is_admin?, :only => [:index]
   def index
     @users = User.order(:name)
 
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
       else
         @user = User.find(current_user.id)
       end
+    else
     end
 # end of the code
     #@orders = @user.orders

@@ -20,7 +20,7 @@
         <legend>Enter User Details</legend>
 
         <div>
-          <%= f.label :name, 'Login name' %>:
+          <%= f.label :name, 'Login name *' %>:
           <%= f.text_field :name, :size => 40 %>
         </div>
 
@@ -35,12 +35,12 @@
         </div>
 
         <div>
-          <%= f.label :password, 'Password' %>:
+          <%= f.label :password, 'Password *' %>:
           <%= f.password_field :password, :size => 40 %>
         </div>
 
         <div>
-          <%= f.label :password_confirmation, 'Confirm' %>:
+          <%= f.label :password_confirmation, 'Confirm *' %>:
           <%= f.password_field :password_confirmation, :size => 40 %>
         </div>
 
@@ -56,7 +56,7 @@
         <% end %>
 
       </fieldset>
-      <br/>
+      <p>* required fields</p>
       <fieldset>
         <legend>Enter Billing Address Details</legend>
         <div>

@@ -6,13 +6,26 @@
 
 
 <% if @orders.present? %>
-    <b>Your past orders were:  </b>
+    <b>Your past orders were: </b>
+    <table>
+      <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.created_at.to_date %></td>
+            <td><% order.line_items.each do |item| %>
+              <table>
+              <tr>
+                <td><%= item.product.title %></td>
+                <td><%= item.quantity %></td>
+                <td><%= number_to_currency(item.total_price, {:unit => "&euro;", :separator => ".", :delimiter => ","}) %></td>
+               </tr>
+              </table>
 
-    <% @orders.each do |order| %>
-        <p>
-        <%= order.created_at %>
-        <p>
-    <% end %>
+          <% end %>
+            </td>
+            <td><%= number_to_currency(order.total_price, {:unit => "&euro;", :separator => ".", :delimiter => ","}) %></td>
+          </tr>
+      <% end %>
+    </table>
 <% else %>
     You haven't placed any orders yet
 <% end %>

@@ -9,6 +9,8 @@ class WelcomeController < ApplicationController
   end
 
   def thank_you
+    session[:user_id] = nil
+
   end
 
   def register

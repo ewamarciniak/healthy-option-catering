@@ -4,6 +4,8 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
+  before_filter :is_admin?
+
   def index
     @products = Product.search(params[:search_query])
 

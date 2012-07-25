@@ -13,8 +13,13 @@ Product.create(:title =>'Chargrilled courgette with basil, mint, chilli and lemo
 Product.create(:title =>'Piri-piri prawns and harissa couscous', :description => 'Delicious mix of exotic flavours', :image_url => '/images/sea_bream_with_courgette.jpg', :price => '9.39')
 Product.create(:title =>'Fresh pea, broad bean and ham hock salad', :description => 'Delicious ham hock salad recipe', :image_url => '/images/warmpotatosalad.jpg', :price => '4.99')
 
-#Category.create(:name =>'vegetarian')
-#Category.create(:name =>'gluten-free')
-#Category.create(:name =>'dairy-free')
+#Category.create(:name =>'Vegetarian')
+#Category.create(:name =>'Gluten-free')
+#Category.create(:name =>'Dairy-free')
 
-#Product.find(1).update_attribute( :category_id)   => 1
+p = Product.find(2).categories
+p << Category.find_by_name('Vegetarian')
+p.save
+#p = Product.find(1).categories << Category.find_find_by_name('Gluten-free')
+#p = Product.find(2).categories << Category.find_find_by_name('Gluten-free')
+#p = Product.find(3).categories << Category.find_find_by_name('Vegetarian')
